@@ -15,7 +15,7 @@
         <div class="col-md-6">
      <div class="form-group">
     <label for="exampleFormControlSelect1">Select Category</label>
-    <select class="form-control" id="programming" name="cat">
+    <select class="form-control" id="programming" name="cat" required>
         <option value="">---select Category---</option>
             {% for i in cat %}
             <option value="{{i.id}}">{{i.name}}</option>
@@ -26,7 +26,7 @@
         <div class="col-md-6">
      <div class="form-group">
     <label for="exampleFormControlSelect1">Select Sub-Category</label>
-    <select class="form-control" id="courses" name="scat">
+    <select class="form-control" id="courses" name="scat" required>
 
     </select>
      </div>
@@ -36,17 +36,17 @@
         <div class="form-row">
     <div class="form-group col-md-6">
     <label for="exampleInputPassword1">Product name</label>
-    <input type="text" class="form-control" placeholder="Enter product Name" id="exampleInputPassword1" name="p_name">
+    <input type="text" class="form-control" placeholder="Enter product Name" id="exampleInputPassword1" name="p_name" required>
 </div>
             <div class="form-group col-md-6">
     <label for="exampleInputPassword1">Minimum Price</label>
-    <input type="number" class="form-control" id="exampleInputPassword1" name="price">
+    <input type="number" class="form-control" id="exampleInputPassword1" name="price" required>
 </div></div>
 
     <div class="form-row">
     <div class="form-group col-md-12">
     <label for="exampleInputPassword1">Product Image</label>
-    <input type="file" class="form-control" id="exampleInputPassword1" name="image">
+    <input type="file" class="form-control" id="exampleInputPassword1" name="image" required>
 </div>
     </div>
 
@@ -55,7 +55,7 @@
         <div class="col-md-6">
      <div class="form-group">
     <label for="exampleFormControlSelect1">Select Session Date</label>
-    <select class="form-control" id="programming1" name="date">
+    <select class="form-control" id="programming1" name="date" required>
         <option value="">---select Session Date---</option>
             {% for i in sed %}
             <option value="{{i.id}}">{{i.date}}</option>
@@ -66,7 +66,7 @@
         <div class="col-md-6">
      <div class="form-group">
     <label for="exampleFormControlSelect1">Session Time</label>
-    <select class="form-control" id="courses1" name="time">
+    <select class="form-control" id="courses1" name="time" required>
 
     </select>
      </div>
@@ -80,9 +80,22 @@
 </div>
 </div>
 {% if terror %}
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 <script>
-    alert('1 new Product Added Successfully');
-    window.location = "{% url 'all_product' %}";
+  setTimeout(function() {
+    swal({
+      title: "Success!",
+      text: "Redirecting in 2 seconds.",
+      type: "success",
+      timer: 3000,
+      showConfirmButton: false
+    }, function() {
+      window.location = "{% url 'all_product' %}";
+    });
+}, 1000);
+    //window.location = "{% url 'all_product' %}";
 </script>
 {% endif %}
 
