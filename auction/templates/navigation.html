@@ -224,6 +224,22 @@
     <li class="nav-item">
       <a class="nav-link" href="{% url 'contact' %}" style="color:black"><ion-icon style="margin-right:2px" name="phone-portrait-sharp"></ion-icon>CONTACT</a>
     </li>
+    <li class="nav-item">
+      <script>
+        window.watsonAssistantChatOptions = {
+          integrationID: "08b9cd8a-cc81-42fe-aa14-17875aaf13dd", // The ID of this integration.
+          region: "eu-gb", // The region your integration is hosted in.
+          serviceInstanceID: "f771cfc6-5e1e-40b3-9e61-c3b6887abc8e", // The ID of your service instance.
+          onLoad: function(instance) { instance.render(); }
+        };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+          document.head.appendChild(t);
+        });
+      </script>
+    </li>
+    
 
     {% endif %}
 
